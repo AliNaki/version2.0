@@ -1,30 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Lawyers from './pages/Lawyers'
-import LawyerProfile from './pages/LawyerProfile'
-import Quiz from './pages/Quiz'
-import Blog from './pages/Blog'
-import BlogPost from './pages/BlogPost'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import QuizPage from "./pages/QuizPage";
+import LawyerProfile from "./pages/LawyerProfile";
+import BlogPost from "./pages/BlogPost";
+import "./App.css";
+const queryClient = new QueryClient();
+const App = ()=>(<QueryClientProvider client={queryClient} data-spec-id="i6Y436zmM8Qhc8MM">
+    <TooltipProvider data-spec-id="zKnGzzQr5We2zibT">
+      <Toaster data-spec-id="VVGbeQw9EsLY3sa6"/>
+      <BrowserRouter data-spec-id="kXuFLFpDVAJiOXVb">
+        <Routes data-spec-id="w18gtwNSXuycqVXg">
+          <Route path="/specai-page/Index" element={<Index data-spec-id="svyB9vBx7NTegCmI"/>} data-spec-id="Zl1jMjsh80bNHOvd"/>
+          <Route path="/specai-page/NotFound" element={<NotFound data-spec-id="YEwJnTs6EApHh1pX"/>} data-spec-id="JFk3iB7z8jx9S3RM"/>
 
-export default function App() {
-  return (
-    <Router>
-      <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-900 to-indigo-900 text-white">
-        <Navbar />
-        <main className="flex-1 container mx-auto px-4 py-6">
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/lawyers' element={<Lawyers />} />
-            <Route path='/lawyers/:id' element={<LawyerProfile />} />
-            <Route path='/quiz' element={<Quiz />} />
-            <Route path='/blog' element={<Blog />} />
-            <Route path='/blog/:id' element={<BlogPost />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
-  )
-}
+          <Route path="/" element={<Index data-dora-id="1" data-spec-id="5mPWsYL8XcWNger0"/>} data-spec-id="sXuedD31E93Zz4kf"/>
+          <Route path="/quiz" element={<QuizPage data-spec-id="BoVXLeB6j03fxxVT"/>} data-spec-id="iEHSAJjxynCH9i1K"/>
+          <Route path="/lawyer/:id" element={<LawyerProfile data-spec-id="f0dDJMH8GDhNRKv6"/>} data-spec-id="gm6EkMPA7qM3LwWJ"/>
+          <Route path="/blog/:id" element={<BlogPost data-spec-id="pv9mfjrAMy7XN0rd"/>} data-spec-id="vyjSvYSQIhuQtUrj"/>
+          {}
+          <Route path="*" element={<NotFound data-spec-id="wsOtIqorinuVTPIN"/>} data-spec-id="YE37tXhQXcu1v7tQ"/>
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>);
+export default App;
